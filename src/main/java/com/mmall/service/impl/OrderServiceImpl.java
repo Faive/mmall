@@ -465,6 +465,7 @@ public class OrderServiceImpl implements IOrderService {
             order.setPaymentTime(DateTimeUtil.strToDate(paramsMap.get("gmt_payment")));
             order.setStatus(Const.OrderStatusEnum.PAID.getCode());
             orderMapper.updateByPrimaryKeySelective(order);
+            log.info("支付宝回调成功，已修改订单信息");
         }
 
         PayInfo payInfo = new PayInfo();
@@ -474,6 +475,7 @@ public class OrderServiceImpl implements IOrderService {
         payInfo.setPlatformNumber(tradeNo);
         payInfo.setPlatformStatus(tradeStatus);
         payInfoMapper.insert(payInfo);
+        log.info("支付宝回调成功，已修改支付信息");
 
         return ServerResponse.createBySuccess();
     }
