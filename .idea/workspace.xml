@@ -43,7 +43,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/com/mmall/controller/portal/ProductContorller.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="261">
-              <caret line="26" column="5" lean-forward="true" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
+              <caret line="26" column="5" lean-forward="false" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -95,7 +95,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/resources/zfbinfo.properties">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="306">
-              <caret line="18" column="16" lean-forward="true" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
+              <caret line="18" column="16" lean-forward="false" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -687,12 +687,12 @@
       <workItem from="1531045958282" duration="1503000" />
       <workItem from="1531047619880" duration="8080000" />
       <workItem from="1531095531944" duration="15977000" />
-      <workItem from="1531191521254" duration="27469000" />
+      <workItem from="1531191521254" duration="27822000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="252105000" />
+    <option name="totallyTimeSpent" value="252458000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1562,7 +1562,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/resources/zfbinfo.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
-          <caret line="18" column="16" lean-forward="true" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
+          <caret line="18" column="16" lean-forward="false" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
           <folding />
         </state>
       </provider>
@@ -1570,7 +1570,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/com/mmall/controller/portal/ProductContorller.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="261">
-          <caret line="26" column="5" lean-forward="true" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
+          <caret line="26" column="5" lean-forward="false" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
           <folding />
         </state>
       </provider>
