@@ -486,7 +486,7 @@ public class OrderServiceImpl implements IOrderService {
         if(order == null){
             return ServerResponse.createBySuccessMessage("用户没有该订单");
         }
-        if(order.getStatus() > Const.OrderStatusEnum.PAID.getCode()){
+        if(order.getStatus() >= Const.OrderStatusEnum.PAID.getCode()){
             return ServerResponse.createBySuccess();
         }
         return ServerResponse.createByError();
