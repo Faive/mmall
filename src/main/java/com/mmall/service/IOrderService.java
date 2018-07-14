@@ -27,6 +27,8 @@ public interface IOrderService {
 
     ServerResponse queryOrderPayStatus(Integer userId, Long orderNo);
 
+    ServerResponse refund(Integer userId, Long orderNo, String reason);
+
     //backend
     ServerResponse manageList(int pageNum, int pageSize);
 

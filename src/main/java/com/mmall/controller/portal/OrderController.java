@@ -145,4 +145,14 @@ public class OrderController {
         ServerResponse serverResponse = iOrderService.queryOrderPayStatus(user.getId(), orderNo);
         return serverResponse.isSuccess()?ServerResponse.createBySuccess(true):ServerResponse.createBySuccess(false);
     }
+
+    @RequestMapping("refund.do")
+    @ResponseBody
+    public ServerResponse refund(HttpSession session, Long orderNo, String reason){
+        User user = (User) session.getAttribute(Const.CURRENT_USER);
+        if(user == null){
+            return ServerResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(), ResponseCode.NEED_LOGIN.getDesc());
+        }
+        return iOrderService.refund(user.getId(), orderNo, reason);
+    }
 }

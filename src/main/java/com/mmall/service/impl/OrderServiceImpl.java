@@ -6,7 +6,9 @@ import com.alipay.demo.trade.config.Configs;
 import com.alipay.demo.trade.model.ExtendParams;
 import com.alipay.demo.trade.model.GoodsDetail;
 import com.alipay.demo.trade.model.builder.AlipayTradePrecreateRequestBuilder;
+import com.alipay.demo.trade.model.builder.AlipayTradeRefundRequestBuilder;
 import com.alipay.demo.trade.model.result.AlipayF2FPrecreateResult;
+import com.alipay.demo.trade.model.result.AlipayF2FRefundResult;
 import com.alipay.demo.trade.service.AlipayTradeService;
 import com.alipay.demo.trade.service.impl.AlipayTradeServiceImpl;
 import com.alipay.demo.trade.utils.ZxingUtils;
@@ -490,6 +492,70 @@ public class OrderServiceImpl implements IOrderService {
             return ServerResponse.createBySuccess();
         }
         return ServerResponse.createByError();
+    }
+
+    @Override
+    public ServerResponse refund(Integer userId, Long orderNo, String reason){
+        Order order = orderMapper.selectByOrderNoAndUserId(userId, orderNo);
+        if(order == null){
+            return ServerResponse.createBySuccessMessage("用户没有该订单");
+        }
+        if(order.getStatus() != Const.OrderStatusEnum.PAID.getCode()){
+            return ServerResponse.createByErrorMessage("只有支付成功且未发货的订单才能退款");
+        }
+
+        // (必填) 外部订单号，需要退款交易的商户外部订单号
+        String outTradeNo = order.getOrderNo().toString();
+
+        // (必填) 退款金额，该金额必须小于等于订单的支付金额，单位为元
+        String refundAmount = order.getPayment().toString();
+
+        // (可选，需要支持重复退货时必填) 商户退款请求号，相同支付宝交易号下的不同退款请求号对应同一笔交易的不同退款申请，
+        // 对于相同支付宝交易号下多笔相同商户退款请求号的退款交易，支付宝只会进行一次退款
+        String outRequestNo = "";
+
+        // (必填) 退款原因，可以说明用户退款原因，方便为商家后台提供统计
+        String refundReason = "" + reason;
+
+        // (必填) 商户门店编号，退款情况下可以为商家后台提供退款权限判定和统计等作用，详询支付宝技术支持
+        String storeId = "mmhappy.no.1";
+
+        // 创建退款请求builder，设置请求参数
+        AlipayTradeRefundRequestBuilder builder = new AlipayTradeRefundRequestBuilder()
+                .setOutTradeNo(outTradeNo).setRefundAmount(refundAmount).setRefundReason(refundReason)
+                .setOutRequestNo(outRequestNo).setStoreId(storeId);
+
+        /** 一定要在创建AlipayTradeService之前调用Configs.init()设置默认参数
+         *  Configs会读取classpath下的zfbinfo.properties文件配置信息，如果找不到该文件则确认该文件是否在classpath目录
+         */
+        Configs.init("zfbinfo.properties");
+
+        /** 使用Configs提供的默认参数
+         *  AlipayTradeService可以使用单例或者为静态成员对象，不需要反复new
+         */
+        AlipayTradeService tradeService = new AlipayTradeServiceImpl.ClientBuilder().build();
+
+        AlipayF2FRefundResult result = tradeService.tradeRefund(builder);
+        switch (result.getTradeStatus()) {
+            case SUCCESS:
+                log.info("支付宝退款成功: )");
+                order.setStatus(Const.OrderStatusEnum.REFUND.getCode());
+                orderMapper.updateByPrimaryKeySelective(order);
+                log.info("成功修改订单状态为已退款");
+                return ServerResponse.createBySuccessMessage("支付宝退款成功: )");
+
+            case FAILED:
+                log.error("支付宝退款失败!!!");
+                return ServerResponse.createByErrorMessage("支付宝退款失败!!!");
+
+            case UNKNOWN:
+                log.error("系统异常，订单退款状态未知!!!");
+                return ServerResponse.createByErrorMessage("系统异常，订单退款状态未知!!!");
+
+            default:
+                log.error("不支持的交易状态，交易返回异常!!!");
+                return ServerResponse.createByErrorMessage("不支持的交易状态，交易返回异常!!!");
+        }
     }
 
 
