@@ -10,10 +10,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c256d680-d719-4a99-b253-4184be60c854" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mmall/controller/portal/OrderController.java" afterPath="$PROJECT_DIR$/src/main/java/com/mmall/controller/portal/OrderController.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mmall/service/IOrderService.java" afterPath="$PROJECT_DIR$/src/main/java/com/mmall/service/IOrderService.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mmall/service/impl/OrderServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/mmall/service/impl/OrderServiceImpl.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mmall/common/Const.java" afterPath="$PROJECT_DIR$/src/main/java/com/mmall/common/Const.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -54,11 +51,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="OrderServiceImpl.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="OrderServiceImpl.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/mmall/service/impl/OrderServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="28">
               <caret line="617" column="34" lean-forward="false" selection-start-line="617" selection-start-column="34" selection-end-line="617" selection-end-column="34" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Const.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/mmall/common/Const.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -158,10 +165,10 @@
         <option value="$PROJECT_DIR$/src/main/java/com/mmall/controller/portal/UserController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/alipay/demo/trade/Main.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/mmall/common/Const.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/mmall/service/impl/UserServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/mmall/service/impl/OrderServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/mmall/controller/portal/OrderController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mmall/common/Const.java" />
       </list>
     </option>
   </component>
@@ -314,39 +321,7 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="com" type="462c0819:PsiDirectoryNode" />
               <item name="mmall" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mmall" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mmall" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="mmall" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-              <item name="portal" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mmall" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mmall" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="mmall" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mmall" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mmall" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="mmall" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-              <item name="impl" type="462c0819:PsiDirectoryNode" />
+              <item name="common" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="mmall" type="b2602c69:ProjectViewProjectNode" />
@@ -626,12 +601,12 @@
       <workItem from="1531528077735" duration="7832000" />
       <workItem from="1531639130584" duration="1903000" />
       <workItem from="1531655538594" duration="686000" />
-      <workItem from="1531726868955" duration="694000" />
+      <workItem from="1531726868955" duration="2271000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="266853000" />
+    <option name="totallyTimeSpent" value="268430000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1380,13 +1355,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mmall/common/Const.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="95" column="5" lean-forward="true" selection-start-line="95" selection-start-column="5" selection-end-line="95" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/alipay/demo/trade/DemoHbRunner.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-89">
@@ -1490,6 +1458,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="28">
           <caret line="617" column="34" lean-forward="false" selection-start-line="617" selection-start-column="34" selection-end-line="617" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mmall/common/Const.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
           <folding />
         </state>
       </provider>
