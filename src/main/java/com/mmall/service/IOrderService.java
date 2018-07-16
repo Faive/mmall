@@ -37,4 +37,6 @@ public interface IOrderService {
     ServerResponse manageSearch(long orderNo, int pageNum, int pageSize);
 
     ServerResponse<String> orderSendGoods(long orderNo);
+
+    ServerResponse<String> confirmReceive(Integer userId, long orderNo);
 }

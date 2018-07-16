@@ -613,4 +613,25 @@ public class OrderServiceImpl implements IOrderService {
         }
         return ServerResponse.createByErrorMessage("订单未支付");
     }
+
+    @Override
+    public ServerResponse<String> confirmReceive(Integer userId, long orderNo){
+        Order order = orderMapper.selectByOrderNoAndUserId(userId, orderNo);
+        if(order == null){
+            return ServerResponse.createByErrorMessage("用户没有该订单");
+        }
+
+        if(order.getStatus() != Const.OrderStatusEnum.SHIPPED.getCode()){
+            return ServerResponse.createByErrorMessage("订单未发货，不能确认收货");
+        }
+        order.setStatus(Const.OrderStatusEnum.ORDER_SUCCESS.getCode());
+        int rowCount = orderMapper.updateByPrimaryKeySelective(order);
+        if(rowCount > 0){
+            return ServerResponse.createBySuccess();
+        }
+
+        return ServerResponse.createByErrorMessage("确认收货失败，请稍候再试");
+    }
+
+
 }

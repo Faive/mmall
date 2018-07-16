@@ -155,4 +155,15 @@ public class OrderController {
         }
         return iOrderService.refund(user.getId(), orderNo, reason);
     }
+
+    @RequestMapping("confirm_receive.do")
+    @ResponseBody
+    public ServerResponse confirmReceive(HttpSession session, long orderNo){
+        User user = (User) session.getAttribute(Const.CURRENT_USER);
+        if(user == null){
+            return ServerResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(), ResponseCode.NEED_LOGIN.getDesc());
+        }
+        return iOrderService.confirmReceive(user.getId(), orderNo);
+    }
+
 }
