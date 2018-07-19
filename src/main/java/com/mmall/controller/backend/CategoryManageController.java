@@ -68,7 +68,7 @@ public class CategoryManageController {
 
     @RequestMapping("get_category.do")
     @ResponseBody
-    public ServerResponse getChildrenParallelCategory(HttpSession session,@RequestParam(value = "parentId", defaultValue = "0") Integer parentId){
+    public ServerResponse getChildrenParallelCategory(HttpSession session,@RequestParam(value = "categoryId", defaultValue = "0") Integer categoryId){
         User user = (User) session.getAttribute(Const.CURRENT_USER);
 
         //判断是否登录
@@ -79,7 +79,7 @@ public class CategoryManageController {
         //判断是否为管理员
         if(iUserService.checkAdminRole(user).isSuccess()){
             //查询子节点的分类信息 并且不递归 保持平级
-            return iCategoryService.getChildrenParallelCategory(parentId);
+            return iCategoryService.getChildrenParallelCategory(categoryId);
 
         }else{
             return ServerResponse.createByErrorMessage("无操作权限，需要管理员权限");
